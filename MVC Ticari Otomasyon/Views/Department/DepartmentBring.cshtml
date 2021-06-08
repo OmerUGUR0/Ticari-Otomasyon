@@ -1,0 +1,17 @@
+﻿@model MVC_Ticari_Otomasyon.Models.Classes.Department
+@{
+    ViewBag.Title = "DepartmentBring";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+@using (Html.BeginForm("DepartmentUpdate", "Department", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x => x.DepartmentId)
+        @Html.LabelFor(x => x.DepartmentName)
+        @Html.TextBoxFor(x => x.DepartmentName, new { @class = "form-control" })
+    </div>
+    <button class="btn btn-warning">Güncelle</button>
+}
+

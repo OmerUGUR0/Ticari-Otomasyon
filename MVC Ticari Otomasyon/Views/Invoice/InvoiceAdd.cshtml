@@ -1,0 +1,33 @@
+﻿@model MVC_Ticari_Otomasyon.Models.Classes.Invoice
+@{
+    ViewBag.Title = "InvoiceAdd";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Yeni Fatura Ekle</h2>
+<form class="form-group" method="post">
+    @Html.Label("Seri No:")
+    @Html.TextBoxFor(x => x.InvoicetSerialNumber, new { @class = "form-control" })
+    <br />
+    @Html.Label("Sıra Numarası:")
+    @Html.TextBoxFor(x => x.InvoicetRowNumber, new { @class = "form-control" })
+    <br />
+    @Html.Label("Vergi Dairesi:")
+    @Html.TextBoxFor(x => x.TaxAdministr, new { @class = "form-control" })
+    <br />
+    @Html.Label("Tarih :")
+    @Html.TextBoxFor(x => x.InvoicetDate, new { @class = "form-control" })
+    <br />
+    @Html.Label("Saat :")
+    @Html.TextBoxFor(x => x.Hour, new { @class = "form-control" })
+    <br />
+    @Html.Label("Teslim Eden :")
+    @Html.TextBoxFor(x => x.Delivering, new { @class = "form-control" })
+    <br />
+    @Html.Label("Teslim Alan :")
+    @Html.TextBoxFor(x => x.Receive, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+</form>
+
+

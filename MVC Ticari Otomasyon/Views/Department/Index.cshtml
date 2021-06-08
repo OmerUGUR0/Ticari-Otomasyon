@@ -1,0 +1,46 @@
+﻿@using MVC_Ticari_Otomasyon.Models.Classes
+@model List<Department>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Departman Listesi</h2>
+
+<table id="tbl1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Kategori Adı</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th>Detaylar</th>
+        </tr>
+    </thead>
+
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td><a>@k.DepartmentId</a></td>
+            <td><a>@k.DepartmentName</a></td>
+            <td><a href="/Department/DepartmentDelete/@k.DepartmentId" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Department/DepartmentBring/@k.DepartmentId" class="btn btn-success">Güncelle</a></td>
+            <td><a href="/Department/DepartmentDetail/@k.DepartmentId" class="btn btn-success" style="background-color:fuchsia"> Detaylar</a></td>
+        </tr>
+    }
+</table>
+<a href="/Department/DepartmentAdd/" class="btn btn-info">Departman Ekle</a>
+
+@*Datatables Eklenti*@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl1').dataTable({});
+</script>
+
+

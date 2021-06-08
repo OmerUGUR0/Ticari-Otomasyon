@@ -1,0 +1,51 @@
+﻿@using MVC_Ticari_Otomasyon.Models.Classes
+@model List<SalesMovement>
+@{
+    ViewBag.Title = "SalesDetail";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Satış Detay</h2>
+<br />
+<table id="tbl1" class="table table-condensed">
+    <thead>
+        <tr>
+            <th>Satış ID</th>
+            <th>Ürün</th>
+            <th>Cari</th>
+            <th>Personel</th>
+            <th>Fiyat</th>
+            <th>Adet</th>
+            <th>Toplam</th>
+            <th>Tarih</th>
+        </tr>
+    </thead>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.SalesMovementID</td>
+            <td>@x.Product.ProductName</td>
+            <td>@x.Currents.CurrentName @x.Currents.CurrentSurName</td>
+            <td>@x.Personnel.PersonnelName @x.Personnel.PersonnelSurName</td>
+            <td>@x.Price</td>
+            <td>@x.Piece</td>
+            <td>@x.TotalAmount</td>
+            <td>@x.Date</td>
+        </tr>
+    }
+</table>
+<button class="btn btn-success">Yazdır</button>
+
+
+@*Datatables Eklenti*@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl1').dataTable({});
+</script>
+

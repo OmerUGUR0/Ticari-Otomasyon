@@ -1,0 +1,24 @@
+﻿@model MVC_Ticari_Otomasyon.Models.Classes.Personnel
+@{
+    ViewBag.Title = "PersonnelAdd";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Yeni Personel Ekle</h2>
+
+<form class="form-group" method="post">
+    @Html.Label("Personel Adı İsmi :")
+    @Html.TextBoxFor(x => x.PersonnelName, new { @class = "form-control" })
+    <br />
+    @Html.Label("Personel Soyadı:")
+    @Html.TextBoxFor(x => x.PersonnelSurName, new { @class = "form-control" })
+    <br />
+    @Html.Label("Personel Resmi :")
+    @Html.TextBoxFor(x => x.PersonnelImage, new { @class = "form-control" })
+    <br />
+    @Html.Label("Departman ID :")
+    @Html.DropDownListFor(x => x.Departmentid, (List<SelectListItem>)ViewBag.vlue, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+</form>
+

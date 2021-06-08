@@ -1,0 +1,38 @@
+﻿@model MVC_Ticari_Otomasyon.Models.Classes.Invoice
+@{
+    ViewBag.Title = "InvoiceBring";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Fatura Güncelle</h2>
+<br />
+@using (Html.BeginForm("InvoiceUpdate", "Invoice", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.InvoiceId)
+    @Html.Label("Seri No:")
+    @Html.TextBoxFor(x => x.InvoicetSerialNumber, new { @class = "form-control" })
+    <br />
+    @Html.Label("Sıra No")
+    @Html.TextBoxFor(x => x.InvoicetRowNumber, new { @class = "form-control" })
+    <br />
+    @Html.Label("Vergi Dairesi")
+    @Html.TextBoxFor(x => x.TaxAdministr, new { @class = "form-control" })
+    <br />
+    @Html.Label("Tarih :")
+    @Html.TextBoxFor(x => x.InvoicetDate, new { @class = "form-control" })
+    <br />
+    @Html.Label("Saat")
+    @Html.TextBoxFor(x => x.Hour, new { @class = "form-control" })
+    <br />
+    @Html.Label("Teslim Eden Adı")
+    @Html.TextBoxFor(x => x.Delivering, new { @class = "form-control" })
+    @*@Html.DropDownListFor(x => x.Delivering, (List<SelectListItem>)ViewBag.vlue, new { @class = "form-control" })*@
+    @*@Html.TextBoxFor(x => x.Categoryid, new { @class = "form-control" })*@
+    <br />
+    @Html.Label("Teslim Alan")
+    @Html.TextBoxFor(x => x.Receive, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-warning">Güncelle</button>
+}
+
+

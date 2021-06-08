@@ -1,0 +1,18 @@
+﻿@model MVC_Ticari_Otomasyon.Models.Classes.Category
+@{
+    ViewBag.Title = "CategoryBring";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Kategor Güncelle</h2>
+<br />
+@using (Html.BeginForm("CategoryUpdate", "Category", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x=>x.CategoryID)
+        @Html.LabelFor(x => x.CategoryAd)
+        @Html.TextBoxFor(x => x.CategoryAd, new { @class = "form-control" })
+    </div>
+    <button class="btn btn-warning">Güncelle</button>
+}
+

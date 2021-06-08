@@ -1,0 +1,29 @@
+﻿@model MVC_Ticari_Otomasyon.Models.Classes.Personnel
+@{
+    ViewBag.Title = "PersonnelBring";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Personel Güncelleme</h2>
+<br />
+@using (Html.BeginForm("PersonnelUpdate", "Personnel", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.PersonnelID)
+    @Html.Label("Personel Adı")
+    @Html.TextBoxFor(x => x.PersonnelName, new { @class = "form-control" })
+    <br />
+    @Html.Label("Personel Soyad")
+    @Html.TextBoxFor(x => x.PersonnelSurName, new { @class = "form-control" })
+    <br />
+    @Html.Label("Personel Resmi")
+    @Html.TextBoxFor(x => x.PersonnelImage, new { @class = "form-control" })
+    <br />
+    @Html.Label("Departman ID")
+    @Html.DropDownListFor(x => x.Departmentid, (List<SelectListItem>)ViewBag.vlue, new { @class = "form-control" })
+    <br />
+</div>
+    <button class="btn btn-warning">Güncelle</button>
+}
+
+

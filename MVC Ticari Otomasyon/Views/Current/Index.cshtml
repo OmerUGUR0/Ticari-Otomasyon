@@ -1,0 +1,47 @@
+﻿@using MVC_Ticari_Otomasyon.Models.Classes
+@model List<Current>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Cariler</h2>
+<table id="tbl1" class="table table-hover">
+    <thead>
+        <tr>
+            <th>CARI ID</th>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Şehir</th>
+            <th>Mail</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th>Detaylar</th>
+        </tr>
+    </thead>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <th>@x.CurrentID</th>
+            <th>@x.CurrentName</th>
+            <th>@x.CurrentSurName</th>
+            <th>@x.CurrentCity</th>
+            <th>@x.CurrentMail</th>
+            <th><a href="/Current/CurrentDelete/@x.CurrentID" class="btn btn-danger">Sil</a></th>
+            <th><a href="/Current/CurrentBring/@x.CurrentID" class="btn btn-success">Güncelle</a></th>
+            <th><a href="/Current/CustomerSales/@x.CurrentID" class="btn btn-outline-secondary">Satış Geçmişi</a></th>
+        </tr>
+    }
+</table>
+<a href="/Current/CurrentAdd" class="btn btn-success">Yeni Cari Ekle</a>
+
+@*Datatables Eklenti*@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl1').dataTable({});
+</script>
