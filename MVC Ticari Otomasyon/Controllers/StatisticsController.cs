@@ -62,17 +62,51 @@ namespace MVC_Ticari_Otomasyon.Controllers
 
             //var value16 = c.SalesMovements.Where(x => x.Date == today).Sum(y => y.TotalAmount).ToString();
             //ViewBag.d16 = value16;
-
-
-
-
-
-
-
-
-
             return View();
         }
+        public ActionResult QuickTables()
+        {
+            var value = from x in c.Currents
+                        group x by x.CurrentCity into g
+                        select new GroupClass
+                        {
+                            City = g.Key,
+                            Total = g.Count()
+                        };
+            return View(value.ToList());
+        }
+        public PartialViewResult Partial1()
+        {
+            var query = from x in c.Personnels
+                        group x by x.Department.DepartmentName into g
+                        select new ClassGroup2
+                        {
+                            Current = g.Key,
+                            Total = g.Count()
+                        };
+            return PartialView(query.ToList());
+        }
+        public PartialViewResult Partial2()
+        {
+            var query = c.Products.ToList();
+            return PartialView(query);
+        }
+        public PartialViewResult Partial3()
+        {
+            var query = c.Currents.ToList();
+            return PartialView(query);
 
+        }
+        public PartialViewResult Partial4()
+        {
+            var query = from x in c.Products
+                       group x by x.Brand into g
+                       select new ClassGroup3
+                       {
+                           brand = g.Key,
+                           value = g.Count()
+                       };
+            return PartialView(query.ToList());
+        }
     }
 }
